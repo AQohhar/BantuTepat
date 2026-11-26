@@ -1,0 +1,56 @@
+/* BantuTepat v1.0 token reference — Tailwind v4 candidate.
+   Import after Tailwind; use same vars in v3 theme.extend if applicable. */
+:root {
+  --bt-brand-50: #EFF5FA; --bt-brand-100: #DDE9F3; --bt-brand-300: #91B1CC;
+  --bt-brand-500: #386990; --bt-brand-700: #204B6C; --bt-brand-800: #173C58; --bt-brand-900: #112E45;
+  --bt-teal-50: #E8F5F2; --bt-teal-100: #D0EAE4; --bt-teal-700: #14675D; --bt-teal-800: #0D524A;
+  --bt-canvas: #F6F7F5; --bt-panel: #FFFFFF; --bt-panel-muted: #F0F3F3;
+  --bt-ink: #192C3A; --bt-muted: #485B69; --bt-line: #D7DFE3; --bt-control-line: #74848E;
+  --bt-focus: #185E9A; --bt-disabled-bg: #E9EEF0; --bt-disabled-text: #596B77;
+  --bt-success: #17603D; --bt-success-bg: #E8F5EC;
+  --bt-warning: #805100; --bt-warning-bg: #FFF3D9;
+  --bt-danger: #A12832; --bt-danger-bg: #FDECEF; --bt-danger-pressed: #7D1B24;
+  --bt-info: #245A85; --bt-info-bg: #EAF2FA;
+  --bt-neutral: #485B69; --bt-neutral-bg: #EDF1F3;
+  --bt-overlay: rgba(17,46,69,.48);
+  --bt-font: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bt-radius-xs: 4px; --bt-radius-control: 8px; --bt-radius-card: 12px; --bt-radius-dialog: 16px;
+  --bt-shadow-subtle: 0 1px 2px rgba(17,46,69,.08);
+  --bt-shadow-float: 0 4px 16px rgba(17,46,69,.10);
+  --bt-shadow-dialog: 0 16px 48px rgba(17,46,69,.16);
+  --bt-sidebar: 248px; --bt-public-max: 1200px; --bt-private-max: 1440px; --bt-form-max: 680px;
+  --bt-z-sticky: 10; --bt-z-header: 20; --bt-z-popover: 30; --bt-z-overlay: 40; --bt-z-dialog: 50; --bt-z-toast: 60;
+}
+@theme inline {
+  --color-brand-soft: var(--bt-brand-50); --color-brand-selected: var(--bt-brand-100); --color-brand-mid: var(--bt-brand-500);
+  --color-primary: var(--bt-brand-700); --color-primary-hover: var(--bt-brand-800); --color-primary-pressed: var(--bt-brand-900);
+  --color-on-primary: var(--bt-panel);
+  --color-secondary: var(--bt-teal-700); --color-secondary-hover: var(--bt-teal-800); --color-accent: var(--bt-teal-700); --color-accent-soft: var(--bt-teal-50);
+  --color-canvas: var(--bt-canvas); --color-panel: var(--bt-panel); --color-panel-muted: var(--bt-panel-muted);
+  --color-ink: var(--bt-ink); --color-muted: var(--bt-muted); --color-line: var(--bt-line); --color-control-line: var(--bt-control-line); --color-focus: var(--bt-focus);
+  --color-disabled-bg: var(--bt-disabled-bg); --color-disabled-text: var(--bt-disabled-text);
+  --color-success: var(--bt-success); --color-success-bg: var(--bt-success-bg);
+  --color-warning: var(--bt-warning); --color-warning-bg: var(--bt-warning-bg);
+  --color-danger: var(--bt-danger); --color-danger-bg: var(--bt-danger-bg); --color-danger-pressed: var(--bt-danger-pressed);
+  --color-info: var(--bt-info); --color-info-bg: var(--bt-info-bg); --color-neutral-ink: var(--bt-neutral); --color-neutral-bg: var(--bt-neutral-bg);
+  --color-overlay: var(--bt-overlay); --font-sans: var(--bt-font);
+  --text-display: 2rem; --text-display--line-height: 2.5rem;
+  --text-display-wide: 2.75rem; --text-display-wide--line-height: 3.25rem;
+  --text-page: 1.625rem; --text-page--line-height: 2.125rem;
+  --text-page-wide: 2rem; --text-page-wide--line-height: 2.5rem;
+  --text-section: 1.375rem; --text-section--line-height: 1.875rem;
+  --text-section-wide: 1.5rem; --text-section-wide--line-height: 2rem;
+  --text-card-title: 1.25rem; --text-card-title--line-height: 1.75rem;
+  --text-lead: 1.125rem; --text-lead--line-height: 1.75rem;
+  --text-body: 1rem; --text-body--line-height: 1.5rem;
+  --text-ui: .875rem; --text-ui--line-height: 1.375rem;
+  --text-caption: .75rem; --text-caption--line-height: 1.125rem;
+  --text-metric: 2rem; --text-metric--line-height: 2.5rem;
+  --radius-control: var(--bt-radius-control); --radius-card: var(--bt-radius-card); --radius-dialog: var(--bt-radius-dialog); --radius-status: var(--bt-radius-xs);
+  --shadow-subtle: var(--bt-shadow-subtle); --shadow-float: var(--bt-shadow-float); --shadow-dialog: var(--bt-shadow-dialog);
+  --breakpoint-tablet: 48rem; --breakpoint-desktop: 80rem; --breakpoint-wide: 90rem;
+  --spacing: .25rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

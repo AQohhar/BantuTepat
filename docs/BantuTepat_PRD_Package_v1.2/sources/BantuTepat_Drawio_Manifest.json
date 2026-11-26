@@ -1,0 +1,343 @@
+[
+  {
+    "page": 1,
+    "name": "01 Role hierarchy dan hubungan tugas",
+    "type": "flowchart TD",
+    "nodes": 15,
+    "edges": 14,
+    "size": [
+      3100,
+      1300
+    ]
+  },
+  {
+    "page": 2,
+    "name": "02 Sitemap frontend lengkap",
+    "type": "flowchart TD",
+    "nodes": 20,
+    "edges": 19,
+    "size": [
+      3800,
+      1300
+    ]
+  },
+  {
+    "page": 3,
+    "name": "03 Arsitektur high-level dan boundary keamanan",
+    "type": "flowchart TB",
+    "nodes": 16,
+    "edges": 18,
+    "size": [
+      1900,
+      1600
+    ]
+  },
+  {
+    "page": 4,
+    "name": "04 Backend transaction boundary dan event outbox",
+    "type": "sequenceDiagram",
+    "nodes": 6,
+    "edges": 14,
+    "size": [
+      1700,
+      1300
+    ]
+  },
+  {
+    "page": 5,
+    "name": "05 ERD konseptual",
+    "type": "erDiagram",
+    "nodes": 27,
+    "edges": 28,
+    "size": [
+      2300,
+      1300
+    ]
+  },
+  {
+    "page": 6,
+    "name": "06 Master proses end-to-end (dari program sampai fee…",
+    "type": "flowchart TD",
+    "nodes": 33,
+    "edges": 43,
+    "size": [
+      2200,
+      4000
+    ]
+  },
+  {
+    "page": 7,
+    "name": "07 Workflow Program Management",
+    "type": "flowchart TD",
+    "nodes": 16,
+    "edges": 16,
+    "size": [
+      1700,
+      2400
+    ]
+  },
+  {
+    "page": 8,
+    "name": "08 Data Proposal, sukses, revisi, tidak dapat diproses",
+    "type": "flowchart TD",
+    "nodes": 22,
+    "edges": 27,
+    "size": [
+      1800,
+      2600
+    ]
+  },
+  {
+    "page": 9,
+    "name": "09 Pendaftaran, batas wilayah & penolakan dua tahap",
+    "type": "flowchart TD",
+    "nodes": 24,
+    "edges": 28,
+    "size": [
+      1700,
+      2800
+    ]
+  },
+  {
+    "page": 10,
+    "name": "10 Swimlane user flow (empat lapisan proses)",
+    "type": "flowchart TB",
+    "nodes": 12,
+    "edges": 12,
+    "size": [
+      2900,
+      1300
+    ]
+  },
+  {
+    "page": 11,
+    "name": "11 Case State Machine",
+    "type": "stateDiagram-v2",
+    "nodes": 14,
+    "edges": 18,
+    "size": [
+      1700,
+      1600
+    ]
+  },
+  {
+    "page": 12,
+    "name": "11 Appeal State Machine",
+    "type": "stateDiagram-v2",
+    "nodes": 8,
+    "edges": 9,
+    "size": [
+      1700,
+      1300
+    ]
+  },
+  {
+    "page": 13,
+    "name": "12 Penolakan, sanggahan, pengaduan dan feedback",
+    "type": "flowchart TD",
+    "nodes": 16,
+    "edges": 20,
+    "size": [
+      1700,
+      2100
+    ]
+  },
+  {
+    "page": 14,
+    "name": "13 Data visibility transparansi vs audit",
+    "type": "flowchart TB",
+    "nodes": 8,
+    "edges": 7,
+    "size": [
+      1700,
+      1300
+    ]
+  },
+  {
+    "page": 15,
+    "name": "14 WhatsApp menu & web handoff",
+    "type": "flowchart TD",
+    "nodes": 15,
+    "edges": 19,
+    "size": [
+      1800,
+      1600
+    ]
+  },
+  {
+    "page": 16,
+    "name": "15 AI anomaly pipeline, human decision dan fallback",
+    "type": "flowchart TD",
+    "nodes": 12,
+    "edges": 13,
+    "size": [
+      1700,
+      2100
+    ]
+  },
+  {
+    "page": 17,
+    "name": "16 Web chatbot LLM + RAG (tidak melewati WhatsApp)",
+    "type": "sequenceDiagram",
+    "nodes": 5,
+    "edges": 11,
+    "size": [
+      1700,
+      1300
+    ]
+  },
+  {
+    "page": 18,
+    "name": "17 Face 1:1, PAD dan alternative manual",
+    "type": "flowchart TD",
+    "nodes": 13,
+    "edges": 15,
+    "size": [
+      1700,
+      2000
+    ]
+  },
+  {
+    "page": 19,
+    "name": "18 Warga submit, AI async, petugas dan verifikator",
+    "type": "sequenceDiagram",
+    "nodes": 8,
+    "edges": 26,
+    "size": [
+      1900,
+      2100
+    ]
+  },
+  {
+    "page": 20,
+    "name": "19 Penolakan administratif, sanggahan dan hasil revisi",
+    "type": "sequenceDiagram",
+    "nodes": 6,
+    "edges": 19,
+    "size": [
+      1700,
+      1700
+    ]
+  },
+  {
+    "page": 21,
+    "name": "20 Privacy-aware authentication/authorization",
+    "type": "sequenceDiagram",
+    "nodes": 5,
+    "edges": 13,
+    "size": [
+      1700,
+      1300
+    ]
+  },
+  {
+    "page": 22,
+    "name": "21 Security trust boundaries (fokus PII dan biometrik)",
+    "type": "flowchart TB",
+    "nodes": 12,
+    "edges": 11,
+    "size": [
+      2300,
+      1300
+    ]
+  },
+  {
+    "page": 23,
+    "name": "22 Frontend application navigation dan branching",
+    "type": "flowchart TD",
+    "nodes": 21,
+    "edges": 24,
+    "size": [
+      1800,
+      2100
+    ]
+  },
+  {
+    "page": 24,
+    "name": "23 Frontend form error states dan penyelesaian",
+    "type": "stateDiagram-v2",
+    "nodes": 13,
+    "edges": 19,
+    "size": [
+      1700,
+      1800
+    ]
+  },
+  {
+    "page": 25,
+    "name": "24 Backend policy decision flow dan otorisasi",
+    "type": "flowchart TD",
+    "nodes": 17,
+    "edges": 16,
+    "size": [
+      2000,
+      2000
+    ]
+  },
+  {
+    "page": 26,
+    "name": "25 Async events, outbox dan pemulihan gangguan",
+    "type": "sequenceDiagram",
+    "nodes": 6,
+    "edges": 14,
+    "size": [
+      1700,
+      1300
+    ]
+  },
+  {
+    "page": 27,
+    "name": "26 AI service isolation dan fallback keseluruhan",
+    "type": "flowchart TD",
+    "nodes": 16,
+    "edges": 18,
+    "size": [
+      2400,
+      1300
+    ]
+  },
+  {
+    "page": 28,
+    "name": "27 Deployment produksi demo dengan trust boundary",
+    "type": "flowchart TB",
+    "nodes": 16,
+    "edges": 19,
+    "size": [
+      2500,
+      1300
+    ]
+  },
+  {
+    "page": 29,
+    "name": "28 CI/CD, gate keamanan, dan deploy",
+    "type": "flowchart TD",
+    "nodes": 14,
+    "edges": 14,
+    "size": [
+      1700,
+      2100
+    ]
+  },
+  {
+    "page": 30,
+    "name": "29 Transparansi publik vs pengawasan internal",
+    "type": "flowchart TD",
+    "nodes": 9,
+    "edges": 9,
+    "size": [
+      1700,
+      1300
+    ]
+  },
+  {
+    "page": 31,
+    "name": "30 Ringkasan keputusan akhir BantuTepat",
+    "type": "flowchart TD",
+    "nodes": 18,
+    "edges": 20,
+    "size": [
+      1700,
+      2200
+    ]
+  }
+]

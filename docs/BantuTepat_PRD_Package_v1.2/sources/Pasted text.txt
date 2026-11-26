@@ -1,0 +1,313 @@
+# BANTUTEPAT — DIGITAL PUBLIC SERVICE AND SOCIAL ASSISTANCE TRANSPARENCY PLATFORM
+
+## 1. Project Overview
+
+Saya ingin membangun aplikasi web bernama BantuTepat, yaitu platform digital pelayanan publik untuk membantu masyarakat mengakses informasi program bantuan sosial, mengajukan usulan pembaruan data sosial ekonomi, mendaftarkan diri pada program yang tersedia, serta memantau proses pemeriksaan secara transparan.
+
+Aplikasi ini dibuat untuk mengikuti Techcomfest 2027 Web Application Competition dengan subtema:
+
+**Smart Governance & Public Service — SDG 16: Peace, Justice, and Strong Institutions.**
+
+BantuTepat bertujuan meningkatkan efisiensi pelayanan publik, transparansi proses administrasi, akuntabilitas petugas, dan kemudahan akses masyarakat.
+
+Aplikasi bukan sistem resmi pemerintah dan tidak memiliki integrasi langsung dengan database pemerintah. Seluruh data warga, wilayah, program, dan hasil pemeriksaan menggunakan data sintetis untuk kebutuhan demonstrasi.
+
+## 2. Problem Statement
+
+Permasalahan yang ingin diselesaikan:
+
+1. Masyarakat kesulitan memperoleh informasi program bantuan, persyaratan, periode, dan cakupan wilayah.
+2. Proses pengajuan dan pembaruan data sosial ekonomi belum mudah dipantau.
+3. Masyarakat kurang mengetahui alasan pengajuan perlu diperbaiki atau tidak dapat diproses.
+4. Belum tersedia mekanisme digital yang mudah untuk mengajukan sanggahan.
+5. Pengawasan terhadap aktivitas petugas dan proses pemeriksaan membutuhkan transparansi dan pencatatan yang baik.
+
+## 3. Main Solution
+
+BantuTepat menyediakan satu platform web multi-role dengan fitur:
+
+- Portal informasi dan katalog program bantuan.
+- Usulan atau koreksi data sosial ekonomi.
+- Pendaftaran program bantuan tertentu.
+- Pengajuan mandiri oleh masyarakat.
+- Pengusulan masyarakat oleh RT/RW terotorisasi.
+- Pemeriksaan berjenjang oleh petugas.
+- AI anomaly detection sebagai alat bantu pemeriksaan.
+- Tracking status dan riwayat pengajuan.
+- Permintaan perbaikan dan sanggahan.
+- Sistem pengaduan dan feedback.
+- Dashboard transparansi publik.
+- Audit aktivitas petugas.
+- Chatbot informasi berbasis LLM dan RAG di website.
+- WhatsApp bot berbasis menu statis.
+
+## 4. User Roles
+
+Sistem harus memiliki tujuh role yang menggunakan akun:
+
+1. CITIZEN — Masyarakat.
+2. REGIONAL_PROPOSER — RT/RW terotorisasi.
+3. VILLAGE_OPERATOR — Operator desa/kelurahan.
+4. AGENCY_VERIFIER — Verifikator instansi.
+5. PROGRAM_MANAGER — Pengelola program.
+6. AUDITOR — Pengawas.
+7. SUPER_ADMIN — Administrator teknis.
+
+Guest dapat mengakses informasi publik tanpa login.
+
+Setiap role memiliki dashboard dan permission berbeda. Akses data harus berdasarkan role, instansi, wilayah, assignment, kepemilikan kasus, dan mandat yang masih berlaku.
+
+Super Admin hanya bertugas mengelola aspek teknis, bukan menentukan penerima bantuan.
+
+## 5. Core Business Modules
+
+### A. Public Portal
+- Landing page.
+- Katalog program.
+- Detail program.
+- Panduan pengajuan.
+- FAQ.
+- Pusat bantuan.
+- Transparansi publik.
+- Kebijakan privasi.
+
+### B. Program Management
+- Pengelola membuat program.
+- Menentukan persyaratan, wilayah, periode, metode pengajuan, dan kuota jika relevan.
+- Program disimpan sebagai draft.
+- Program melewati proses review publikasi.
+- Hanya pengguna dengan permission khusus yang dapat memublikasikan program.
+- Riwayat versi program harus tersimpan.
+
+### C. Citizen Application
+Warga dapat melakukan dua proses yang berbeda:
+
+1. DATA_PROPOSAL: usulan atau koreksi kondisi sosial ekonomi tanpa memilih program tertentu.
+2. PROGRAM_APPLICATION: pendaftaran pada satu program tertentu.
+
+Kedua proses wajib memiliki entitas, status, validasi, dan workflow terpisah.
+
+Warga dapat menyimpan draft, mengirim pengajuan, melihat tracking, memperbaiki pengajuan, dan mengajukan sanggahan jika memenuhi ketentuan.
+
+### D. Regional Proposal
+RT/RW yang mendapatkan mandat dapat membantu mengajukan atau mengusulkan data warga.
+
+Petugas hanya dapat mengakses warga dan kasus sesuai wilayah serta assignment yang diberikan.
+
+### E. Verification and Review
+Workflow pemeriksaan:
+
+1. Warga atau petugas mengirim pengajuan.
+2. Sistem melakukan validasi administratif dan deterministik.
+3. Kasus memperoleh nomor tiket.
+4. Operator desa melakukan pemeriksaan awal.
+5. Operator dapat meminta revisi atau memberikan rekomendasi.
+6. Verifikator instansi melakukan pemeriksaan independen.
+7. Sistem mencatat hasil dan alasan tindakan.
+8. Hasil dapat diteruskan ke Government Data Simulator.
+
+Gunakan prinsip maker-checker. Pengaju dan pemeriksa akhir tidak boleh menjadi orang yang sama pada kasus yang sama.
+
+Hasil penerusan ke simulator bukan penetapan penerima bantuan resmi.
+
+### F. Appeal, Complaint, Feedback
+Ketiga fungsi harus dipisahkan:
+
+- Appeal: sanggahan terhadap hasil pemeriksaan.
+- Complaint: pengaduan mengenai pelayanan, petugas, akses, atau dugaan pungutan liar.
+- Feedback: evaluasi kepuasan pengguna.
+
+Pengajuan sanggahan harus diperiksa oleh reviewer independen. Keputusan lama tetap tersimpan dalam riwayat audit.
+
+### G. Transparency and Audit
+- Statistik pengajuan.
+- Statistik hasil pemeriksaan.
+- Informasi program aktif.
+- Statistik berdasarkan wilayah dalam bentuk agregat.
+- Timeline aktivitas kasus pribadi.
+- Audit log internal yang tidak dapat diubah secara sembarangan.
+- Pemisahan informasi publik dan informasi internal.
+
+Tidak boleh ada data identitas pribadi yang ditampilkan pada dashboard publik.
+
+## 6. AI and Integration
+
+### AI Anomaly Detection
+Gunakan AI untuk membantu mendeteksi pola data tidak wajar, indikasi duplikasi, dan ketidakkonsistenan data.
+
+AI hanya menghasilkan indikator atau flag yang harus diverifikasi manusia.
+
+AI dilarang:
+- Menolak pengajuan secara otomatis.
+- Menyetujui penerima secara otomatis.
+- Menetapkan status penerima bantuan.
+- Memperbarui database pemerintah secara otomatis.
+
+Model harus benar-benar melakukan inference dengan data sintetis, bukan hasil AI yang sekadar di-hardcode.
+
+### Web Chatbot LLM + RAG
+Chatbot hanya tersedia di website untuk menjawab pertanyaan umum tentang program, persyaratan, prosedur, dan FAQ berdasarkan dokumen sumber yang disetujui.
+
+Jika AI tidak tersedia, gunakan FAQ statis sebagai fallback.
+
+### WhatsApp
+WhatsApp menggunakan menu statis berbasis state machine. Tidak menggunakan LLM.
+
+Sediakan simulator WhatsApp apabila integrasi provider resmi belum tersedia.
+
+### Government Data Simulator
+Buat service terisolasi yang menirukan pertukaran data dengan layanan pemerintah menggunakan data sintetis.
+
+Berikan label simulasi pada semua tampilan dan responsnya.
+
+### Face Verification
+Face verification 1:1 bersifat opsional untuk demonstrasi, tidak wajib bagi warga, tidak menggunakan pengenalan wajah massal, dan harus memiliki alternatif verifikasi manual.
+
+## 7. Technical Stack
+
+Gunakan teknologi berikut:
+
+Frontend:
+- Next.js App Router.
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Custom responsive UI components.
+
+Backend:
+- Next.js Route Handlers sebagai API/BFF utama.
+- Modular monolith.
+- Zod untuk validasi.
+- Server-side RBAC dan authorization.
+
+Database:
+- PostgreSQL.
+- Prisma ORM.
+- Database migration dan synthetic seed data.
+
+AI:
+- Python FastAPI.
+- Scikit-learn untuk anomaly detection.
+- ONNX Runtime CPU untuk face verification jika fitur opsional diaktifkan.
+
+Testing:
+- Vitest.
+- Playwright.
+- API integration testing.
+- Authorization dan security testing.
+
+Deployment:
+- Vercel untuk website.
+- Managed PostgreSQL.
+- Hosting terpisah untuk FastAPI dan worker apabila diperlukan.
+- Docker Compose untuk pengembangan lokal.
+
+Seluruh proyek harus berada dalam satu GitHub monorepo.
+
+Versi dependency harus kompatibel dan dikunci menggunakan lockfile.
+
+## 8. UI/UX Design Requirements
+
+Buat desain website yang profesional, modern, orisinal, dan sesuai karakter aplikasi pelayanan publik Indonesia.
+
+Ketentuan:
+
+- Seluruh interface menggunakan Bahasa Indonesia.
+- Responsive mobile-first dan desktop.
+- Navigasi sederhana dan mudah dipahami.
+- Dashboard menyesuaikan role.
+- Form pengajuan berbentuk wizard bertahap.
+- Status pengajuan menggunakan indikator visual yang konsisten.
+- Timeline aktivitas mudah dibaca.
+- Informasi alasan penolakan harus jelas.
+- Loading, empty state, validation error, dan error state harus tersedia.
+- Gunakan komponen UI yang konsisten.
+- Perhatikan aksesibilitas dan kontras warna.
+
+Jangan menggunakan template website jadi. Desain harus dibuat secara orisinal.
+
+## 9. Security and Privacy
+
+- Server-side RBAC pada setiap API.
+- Authorization berdasarkan object ownership dan jurisdiction.
+- Hindari IDOR/BOLA.
+- Pisahkan data publik dan privat.
+- Jangan menggunakan NIK, dokumen, atau biometrik warga sungguhan.
+- Jangan menaruh API key di frontend.
+- Gunakan private object storage untuk dokumen.
+- Jangan menyimpan data biometrik mentah secara permanen.
+- Catat aktivitas penting melalui audit log.
+- Terapkan rate limiting, validasi input, dan proteksi file upload.
+- Gunakan graceful degradation apabila layanan AI atau integrasi eksternal gagal.
+
+## 10. Development Priorities
+
+Buat perencanaan pekerjaan berdasarkan tiga prioritas.
+
+P0 — CORE:
+- Authentication dan RBAC.
+- Wilayah dan assignment.
+- Program catalog.
+- Program management dan publication review.
+- Citizen application.
+- Regional proposal.
+- Verification workflow.
+- Revision.
+- Reasoned rejection.
+- Appeal.
+- Complaint.
+- Feedback.
+- Audit.
+- Transparency dashboard.
+
+P1 — INNOVATION:
+- Government Data Simulator.
+- AI anomaly detection.
+- Web chatbot LLM + RAG.
+- WhatsApp static menu simulator.
+
+P2 — OPTIONAL:
+- Face verification 1:1.
+- OCR lanjutan.
+- Fitur AI tambahan.
+
+Prioritaskan P0 hingga seluruh alur utama benar-benar berfungsi sebelum mengembangkan P1 dan P2.
+
+## 11. Expected Planning Output
+
+Saya ingin Anda menghasilkan perencanaan software engineering yang lengkap dan siap digunakan oleh AI coding agent.
+
+Hasil perencanaan harus mencakup:
+
+1. Product Requirements Document (PRD).
+2. Executive summary dan problem statement.
+3. User persona dan user stories.
+4. Functional requirements dan non-functional requirements.
+5. Role and permission matrix.
+6. Sitemap dan frontend page specification.
+7. User flow dan business workflow.
+8. System architecture.
+9. Database ERD dan relationship.
+10. API endpoint dan contract specification.
+11. Case state machine.
+12. Security architecture.
+13. Design system dan UI/UX specification.
+14. Feature breakdown.
+15. Development phases.
+16. Task list dengan dependency yang jelas.
+17. Acceptance criteria setiap fitur.
+18. Testing strategy.
+19. Deployment strategy.
+20. Definition of Done.
+
+Pisahkan pekerjaan berdasarkan feature dan frontend/backend layer. Sebelum task implementasi dibuat, tetapkan kontrak API, struktur data, permission, dan state transition agar pekerjaan frontend dan backend konsisten.
+
+Buat task berukuran kecil dan spesifik, bukan satu task besar yang mencakup banyak modul.
+
+Setiap task harus menjelaskan tujuan, ruang lingkup, dependency, acceptance criteria, serta cara menguji hasilnya.
+
+Pertahankan seluruh aturan bisnis dan batasan keamanan yang telah dijelaskan.
+
+Apabila ada informasi yang belum jelas, tanyakan terlebih dahulu. Jangan menghilangkan kebutuhan penting atau mengarang integrasi pemerintah resmi.
+
+Target akhirnya adalah aplikasi BantuTepat yang benar-benar dapat dijalankan, diuji, di-hosting, dipresentasikan, dan dipertanggungjawabkan source code-nya dalam Techcomfest 2027.
