@@ -13,6 +13,7 @@
 
     <section class="page-section catalog-section">
         <div class="site-container">
+            <p class="simulation-data-note notice" role="note">Angka pada halaman ini adalah data sintetis untuk simulasi, bukan statistik layanan operasional.</p>
             <form class="panel filter-panel statistics-filters" id="statistik-filter" tabindex="-1" method="GET" action="{{ route('transparency') }}" aria-label="Filter statistik">
                 <div class="filter-grid filter-grid-compact">
                     <x-public.filter-select name="period" label="Periode" :options="$periods" :selected="$period" :errors="$filterErrors" />

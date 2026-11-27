@@ -21,20 +21,15 @@
 }
 .site-footer .footer-nav a { line-height: 1.35; }
 
-.home-hero .hero-grid {
-    background:
-        radial-gradient(ellipse at 95% 5%, #5877bf4a, transparent 57%),
-        repeating-linear-gradient(126deg, transparent 0 2rem, #b8b6ff13 2rem calc(2rem + 1px)),
-        linear-gradient(115deg, #131f3b, #2d3f87);
-}
+.home-hero .hero-grid { background: var(--bt-brand-900); }
 
-.home-hero .hero-media { border-top: 1px solid #cedcff54; }
+.home-hero .hero-media { border-top: 1px solid var(--bt-line); background: var(--bt-panel-muted); }
 .home-shortcuts .service-shortcuts > a { align-items: flex-start; padding-block: 1rem; }
 .home-shortcuts .service-shortcuts > .service-start { border-color: #aebff1; background: #e4edff; }
 .home-shortcuts .service-shortcuts > a:hover { border-color: currentColor; }
 .home-shortcuts .service-shortcuts strong { display: block; margin-bottom: .12rem; }
 
-.catalog-results .catalog-cards .program-photo { aspect-ratio: 2.65; }
+.catalog-results .catalog-cards .program-photo { aspect-ratio: 2.1; }
 .catalog-results .results-heading h2:focus-visible { outline-offset: .25rem; }
 .program-page-grid .program-highlights > div { padding: clamp(.6rem, 1.35vw, .9rem); }
 .program-page-grid .program-registration .registration-action {
@@ -206,6 +201,6 @@
 
 @media (min-width: 52rem) {
     .home-shortcuts .service-shortcuts { grid-template-columns: 1.18fr 1fr .85fr; }
-    .home-hero .hero-media { border-top: 0; border-inline-start: 1px solid #cedcff54; }
+    .home-hero .hero-media { border-top: 0; border-inline-start: 1px solid var(--bt-line); }
     .revision-layout { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1.35rem; }
 }

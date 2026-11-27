@@ -3,43 +3,46 @@
 @section('title', 'Beranda')
 
 @section('content')
-    <section class="site-container home-hero">
+    <section class="site-container home-hero" aria-labelledby="home-title">
         <div class="hero-grid">
             <div class="hero-copy">
-                <h1>Cari bantuan sosial <span>yang sesuai.</span></h1>
-                <p class="intro">Cari program di wilayah Anda, periksa syaratnya, lalu pilih jalur pengajuan yang tersedia.</p>
+                <p class="home-eyebrow">Portal informasi bantuan sosial</p>
+                <h1 id="home-title">Temukan jalur bantuan yang <span>tepat.</span></h1>
+                <p class="intro">Telusuri program, pahami persyaratannya, dan pilih jalur layanan yang sesuai dengan kebutuhan Anda.</p>
+
+                <div class="home-hero-actions">
+                    <x-ui.action-link href="{{ route('program.index') }}">Lihat program</x-ui.action-link>
+                    <a class="text-link" href="{{ route('guide') }}">Pelajari cara pengajuan</a>
+                </div>
 
                 <form class="hero-search" action="{{ route('program.index') }}" method="GET" role="search" aria-label="Cari program bantuan sosial">
                     <label class="sr-only" for="home-search">Cari nama program atau wilayah</label>
-                    <span class="search-glyph" aria-hidden="true"></span>
                     <input id="home-search" type="search" name="q" maxlength="100" placeholder="Program, wilayah">
                     <button class="button" type="submit">Cari program</button>
                 </form>
-
-                <a class="hero-guide-link" href="{{ route('guide') }}">Baca panduan layanan</a>
             </div>
             <figure class="hero-media">
                 <img class="hero-image" src="{{ asset('layanan-warga.jpg') }}" width="1448" height="1086"
-                    alt="Ilustrasi petugas layanan menjelaskan dokumen kepada warga" fetchpriority="high">
+                    alt="Ilustrasi petugas layanan menjelaskan informasi program kepada warga" fetchpriority="high" decoding="async">
                 <figcaption>Ilustrasi layanan warga</figcaption>
             </figure>
         </div>
     </section>
 
     <section id="layanan" class="site-container home-shortcuts" aria-labelledby="quick-services-heading">
-        <h2 id="quick-services-heading">Apa yang ingin Anda lakukan?</h2>
+        <div class="home-section-heading">
+            <p class="home-eyebrow">Pilih jalur layanan</p>
+            <h2 id="quick-services-heading">Mulai dari kebutuhan Anda</h2>
+            <p>Setiap jalur memiliki persyaratan dan langkah yang berbeda.</p>
+        </div>
         <div class="service-shortcuts">
-            <a class="service-start" href="{{ route('program.index') }}">
-                <span class="shortcut-mark shortcut-program" aria-hidden="true"></span>
-                <span><strong>Jelajahi program</strong><small>Bandingkan bantuan, syarat, dan jadwal di wilayah Anda.</small></span>
+            <a class="service-path-card service-start" href="{{ route('program.index') }}">
+                <span class="path-card-number" aria-hidden="true">01</span>
+                <span class="path-card-copy"><strong>Cari program bantuan</strong><small>Bandingkan cakupan, persyaratan, dan periode program yang tersedia.</small><span class="path-card-action">Buka katalog program <span aria-hidden="true">→</span></span></span>
             </a>
-            <a href="{{ route('guide') }}#usulan-data">
-                <span class="shortcut-mark shortcut-document" aria-hidden="true"></span>
-                <span><strong>Usulkan atau koreksi data</strong><small>Gunakan jalur ini jika data rumah tangga perlu diperbarui.</small></span>
-            </a>
-            <a href="{{ route('demo.workspace.index') }}">
-                <span class="shortcut-mark shortcut-ticket" aria-hidden="true"></span>
-                <span><strong>Pantau tiket</strong><small>Lihat hasil atau permintaan perbaikan di Ruang Warga.</small></span>
+            <a class="service-path-card" href="{{ route('guide') }}#usulan-data">
+                <span class="path-card-number path-card-number-teal" aria-hidden="true">02</span>
+                <span class="path-card-copy"><strong>Perbarui data sosial ekonomi</strong><small>Pelajari jalur usulan jika data rumah tangga belum tercatat atau perlu dikoreksi.</small><span class="path-card-action">Pahami jalur usulan <span aria-hidden="true">→</span></span></span>
             </a>
         </div>
     </section>
@@ -50,7 +53,7 @@
                 <div class="section-heading section-heading-inline">
                     <div>
                         <h2>Program dengan periode aktif</h2>
-                        <p>Lihat cakupan wilayah dan jalur pendaftaran setiap program simulasi.</p>
+                        <p>Lihat cakupan wilayah, persyaratan, dan jalur pendaftaran program simulasi.</p>
                     </div>
                     <x-ui.action-link href="{{ route('program.index') }}" variant="outline">Lihat semua program</x-ui.action-link>
                 </div>
@@ -82,9 +85,9 @@
 
             <div class="process-panel" data-motion-reveal="panel">
                 <ol class="home-steps" role="list">
-                    <li><span class="home-step-number" aria-hidden="true">1</span><strong>Pilih jenis layanan</strong><p>Pilih program atau siapkan usulan pembaruan data sosial ekonomi.</p></li>
-                    <li><span class="home-step-number" aria-hidden="true">2</span><strong>Ikuti pemeriksaan</strong><p>Petugas memeriksa data dan meminta perbaikan bila diperlukan.</p></li>
-                    <li><span class="home-step-number" aria-hidden="true">3</span><strong>Baca hasil dan alasannya</strong><p>Hasil menjelaskan dasar pemeriksaan dan jalur sanggahan yang tersedia.</p></li>
+                    <li><span class="home-step-number" aria-hidden="true">1</span><strong>Pahami persyaratan</strong><p>Baca wilayah, periode, dokumen, dan cara pendaftaran yang berlaku pada program.</p></li>
+                    <li><span class="home-step-number" aria-hidden="true">2</span><strong>Ikuti jalur yang sesuai</strong><p>Pendaftaran program dan usulan pembaruan data adalah dua proses yang berbeda.</p></li>
+                    <li><span class="home-step-number" aria-hidden="true">3</span><strong>Pantau tindak lanjut</strong><p>Dalam simulasi, nomor tiket digunakan untuk melihat riwayat pemeriksaan.</p></li>
                 </ol>
             </div>
         </div>

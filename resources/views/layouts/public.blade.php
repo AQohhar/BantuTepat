@@ -8,7 +8,7 @@
     <title>@yield('title', 'Beranda') | BantuTepat</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body id="halaman-atas" @class(['demo-view' => request()->routeIs('demo.*')])
+<body id="halaman-atas" @class(['demo-view' => request()->routeIs('demo.*'), 'public-home' => request()->routeIs('home')])
     @if (request()->routeIs('demo.*')) data-demo-area="{{ request()->routeIs('demo.operator.*') ? 'operator' : (request()->routeIs('demo.verifier.*') ? 'verifier' : 'resident') }}" @endif>
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
     @include('components.public.navbar')

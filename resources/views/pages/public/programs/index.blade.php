@@ -5,7 +5,7 @@
 @section('content')
     @php
         $activeFilters = array_filter($filters, fn ($value) => $value !== null && $value !== '');
-        $filterNames = ['q' => 'Pencarian', 'territory' => 'Wilayah', 'category' => 'Jenis bantuan', 'status' => 'Status', 'mode' => 'Jalur'];
+        $filterNames = ['q' => 'Pencarian', 'territory' => 'Wilayah', 'status' => 'Status', 'mode' => 'Jalur'];
         $filterValues = ['status' => $statusLabels, 'mode' => $modeLabels];
     @endphp
     <header class="page-intro catalog-intro">
@@ -33,8 +33,6 @@
                         </div>
                         <x-public.filter-select name="territory" label="Wilayah" empty="Semua wilayah"
                             :options="$territories->mapWithKeys(fn ($value) => [$value => $value])" :selected="$filters['territory'] ?? null" :errors="$filterErrors" />
-                        <x-public.filter-select name="category" label="Jenis bantuan" empty="Semua jenis"
-                            :options="$categories->mapWithKeys(fn ($value) => [$value => $value])" :selected="$filters['category'] ?? null" :errors="$filterErrors" />
                         <x-public.filter-select name="status" label="Status" empty="Semua status"
                             :options="$statusLabels" :selected="$filters['status'] ?? null" :errors="$filterErrors" />
                         <x-public.filter-select name="mode" label="Jalur pendaftaran" empty="Semua jalur"

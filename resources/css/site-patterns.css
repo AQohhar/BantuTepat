@@ -32,12 +32,11 @@
 }
 
 .home-process .process-panel { border-left: .3rem solid #8099eb; }
-.catalog-layout > .catalog-filter-shell { box-shadow: 0 .65rem 1.4rem #182f6410; }
+.catalog-layout > .catalog-filter-shell { box-shadow: var(--bt-shadow-subtle); }
 .catalog-results .results-heading { border-bottom: 1px solid var(--line); padding-bottom: .7rem; }
 .catalog-results .results-heading > p { font-weight: 680; }
 .program-facts .program-fact-period dd { color: #253f8a; }
 .program-card-body > .button { align-self: end; }
-.program-intro-grid .program-photo { outline: 1px solid #d7e0ff42; outline-offset: .3rem; }
 .program-registration .registration-mode {
     display: inline-block;
     margin-top: .72rem;
@@ -70,27 +69,21 @@
 
 /* Public guidance, help, statistics and reference pages */
 .page-intro.guide-intro {
-    background:
-        radial-gradient(ellipse at right -10%, #b8c2ff8c, transparent 55%),
-        linear-gradient(105deg, #eaf0ff, #f7f1ff 68%, #ece8ff);
+    background: var(--bt-brand-50);
 }
 
 .page-intro.help-intro {
-    background:
-        radial-gradient(ellipse at right top, #b4e4ecb8, transparent 53%),
-        linear-gradient(105deg, #eaf4ff, #f2faff 65%, #dbf2f4);
+    background: var(--bt-panel-muted);
 }
 
 .page-intro.transparency-intro {
-    background:
-        repeating-linear-gradient(90deg, transparent 0 2.25rem, #e0efff13 2.25rem calc(2.25rem + 1px)),
-        linear-gradient(108deg, #14294d, #254c78 72%, #346b83);
+    background: var(--bt-brand-900);
 }
 
-.transparency-intro h1 { color: #fff; }
-.transparency-intro .intro { color: #e2efff; }
-.transparency-intro .transparency-method-link { display: inline-block; margin-top: .7rem; color: #f2f7ff; }
-.transparency-intro :focus-visible { outline-color: var(--spotlight); }
+.transparency-intro h1 { color: var(--bt-panel); }
+.transparency-intro .intro { color: var(--bt-brand-100); }
+.transparency-intro .transparency-method-link { display: inline-block; margin-top: .7rem; color: var(--bt-panel); }
+.transparency-intro :focus-visible { outline-color: var(--bt-panel); }
 
 .guide-layout { display: grid; gap: clamp(1rem, 2vw, 1.6rem); }
 .guide-intro + .page-section,
@@ -98,8 +91,8 @@
 .section-icon-heading { display: flex; align-items: center; gap: .72rem; }
 .section-icon-heading h2 { text-wrap: initial; }
 .guide-layout .guide-card { display: flex; flex-direction: column; align-items: start; }
-.guide-layout .guide-card:first-child { border-top-color: #cf9a40; background: linear-gradient(#fff9ea, #fff 9.5rem); }
-.guide-layout .guide-card:nth-child(2) { background: linear-gradient(#f3edff, #fff 9.5rem); }
+.guide-layout .guide-card:first-child { border-top-color: var(--bt-brand-500); background: var(--bt-panel); }
+.guide-layout .guide-card:nth-child(2) { border-top-color: var(--bt-teal-700); background: var(--bt-panel); }
 .guide-layout .guide-card > p { margin-top: .85rem; }
 .guide-layout .guide-card .button { margin-top: auto; }
 .guide-layout :is(.steps, .guide-facts) { width: 100%; margin-bottom: 1.2rem; }
@@ -168,29 +161,28 @@
 .statistics-heading { align-items: center; }
 .statistics-scope { display: flex; flex-wrap: wrap; gap: .35rem; }
 .statistics-scope li {
-    border: 1px solid #cbdbed;
-    border-radius: .5rem;
+    border: 1px solid var(--bt-line);
+    border-radius: var(--bt-radius-control);
     padding: .25rem .6rem;
-    background: #ebf5fc;
-    color: #294b6f;
+    background: var(--bt-brand-50);
+    color: var(--bt-brand-800);
     font-size: .88rem;
     font-weight: 680;
 }
 
 .statistics-grid > .stat-total {
     min-height: 12rem;
-    background:
-        radial-gradient(circle at 95% 8%, #487c9bbb, transparent 52%),
-        linear-gradient(135deg, #182948, #234875);
+    background: var(--bt-brand-900);
 }
 
-.statistics-grid .distribution-item { border-radius: .58rem; padding: .52rem .65rem; background: #f7f9fd; }
-.statistics-grid .metric-track { height: .63rem; background: #e5ebf7; }
-.statistics-unavailable { border-color: #decf9c; background: #fff9e9; }
-.methodology#statistik-metode { border-left: .25rem solid #6699ba; }
+.statistics-grid .distribution-item { border-radius: var(--bt-radius-control); padding: .52rem .65rem; background: var(--bt-panel-muted); }
+.statistics-grid .metric-track { height: .63rem; background: var(--bt-disabled-bg); }
+.statistics-unavailable { border-color: var(--bt-warning); background: var(--bt-warning-bg); }
+.methodology#statistik-metode { border-left: .25rem solid var(--bt-brand-500); }
 .methodology#statistik-metode h2 { font-size: clamp(1.2rem, 2.4vw, 1.6rem); }
+.simulation-data-note { margin-bottom: 1rem; font-size: .92rem; font-weight: 600; }
 
-.page-intro.information-intro { background: linear-gradient(108deg, #edf1fb, #edf7fb 66%, #f2effa); }
+.page-intro.information-intro { background: var(--bt-panel-muted); }
 .information-layout {
     display: grid;
     align-items: start;
@@ -221,19 +213,19 @@
     gap: .7rem;
     max-width: 48rem;
     margin-inline: auto;
-    border-top: .3rem solid #7b98e6;
+    border-top: .3rem solid var(--bt-info);
     padding: clamp(1.15rem, 4vw, 3.2rem);
-    background: linear-gradient(140deg, #eaf1ff, #fff 65%);
+    background: var(--bt-panel-muted);
 }
 
 .error-recovery .actions { margin-top: .15rem; }
 
 /* Each simulated workspace keeps its own tint and shared interaction styles. */
 [data-demo-area] {
-    --workspace-tint: #edf2ff;
-    --workspace-band: #dfe9ff;
-    --workspace-accent: #6d8be0;
-    --workspace-ink: #28428d;
+    --workspace-tint: var(--bt-brand-50);
+    --workspace-band: var(--bt-brand-100);
+    --workspace-accent: var(--bt-brand-500);
+    --workspace-ink: var(--bt-brand-800);
 }
 
 [data-demo-area="operator"] {
@@ -269,16 +261,10 @@
 .demo-context-note { padding-bottom: .2rem; color: var(--workspace-ink); font-size: .8rem; font-weight: 670; }
 
 [data-demo-area] .page-intro:is(.wizard-intro, .case-intro, .workspace-landing) {
-    background:
-        repeating-linear-gradient(126deg, transparent 0 2.25rem, #466aa112 2.25rem calc(2.25rem + 1px)),
-        linear-gradient(105deg, var(--workspace-tint), var(--workspace-band));
+    background: var(--bt-panel-muted);
 }
 
-.demo-access {
-    background:
-        radial-gradient(ellipse at 20% 20%, var(--workspace-band), transparent 60%),
-        linear-gradient(125deg, var(--workspace-tint), #fff 75%);
-}
+.demo-access { background: var(--bt-panel-muted); }
 
 .demo-access .demo-login-panel {
     border-top: .28rem solid var(--workspace-accent);

@@ -42,14 +42,12 @@ class ProgramCatalogController extends Controller
     {
         $catalog = collect(config('bantutepat_demo_programs', []));
         $territories = $catalog->pluck('territory')->unique()->sort()->values();
-        $categories = $catalog->pluck('category')->unique()->sort()->values();
 
         $rules = [
             'q' => ['nullable', 'string', 'max:100'],
             'status' => ['nullable', Rule::in(array_keys(self::STATUS_LABELS))],
             'mode' => ['nullable', Rule::in(array_keys(self::MODE_LABELS))],
             'territory' => ['nullable', Rule::in($territories->all())],
-            'category' => ['nullable', Rule::in($categories->all())],
         ];
         $query = $request->only(array_keys($rules));
         $filterErrors = Validator::make($query, $rules, [
@@ -68,8 +66,7 @@ class ProgramCatalogController extends Controller
             return ($search === '' || Str::contains($searchableText, $search))
                 && $program['status'] === ($filters['status'] ?? $program['status'])
                 && $program['mode'] === ($filters['mode'] ?? $program['mode'])
-                && $program['territory'] === ($filters['territory'] ?? $program['territory'])
-                && $program['category'] === ($filters['category'] ?? $program['category']);
+                && $program['territory'] === ($filters['territory'] ?? $program['territory']);
         })->values();
 
         return view('pages.public.programs.index', [
@@ -80,7 +77,6 @@ class ProgramCatalogController extends Controller
             'statusLabels' => self::STATUS_LABELS,
             'modeLabels' => self::MODE_LABELS,
             'territories' => $territories,
-            'categories' => $categories,
         ]);
     }
 

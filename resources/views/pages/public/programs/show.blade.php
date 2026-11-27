@@ -16,7 +16,7 @@
         <header class="program-intro">
             <div class="site-container program-header-inner">
                 <a class="text-link back-link" href="{{ route('program.index') }}">Kembali ke katalog</a>
-                <div @class(['program-intro-grid', 'program-intro-with-photo' => isset($program['photo'])])>
+                <div class="program-intro-grid program-intro-with-photo">
                     <div>
                         <div class="badge-row">
                             <span class="category-tag">{{ $program['category'] }}</span>
